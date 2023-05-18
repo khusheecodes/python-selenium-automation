@@ -18,11 +18,13 @@ driver.get("https://www.amazon.com/")
 driver.find_element(By.ID, 'twotabsearchtextbox').send_keys('table')
 driver.find_element(By.ID, 'nav-search-submit-button').click()
 
-expected_result = '"table111"'
+expected_result = '"table"'
 actual_result = driver.find_element(By.XPATH, "//span[@class='a-color-state a-text-bold']").text
 
 assert expected_result == actual_result, f'Error! Expected {expected_result} but got actual {actual_result}'
 print('Test case passed!')
 
-#driver.quit()
-sleep (10)
+
+sleep (5)
+
+driver.quit()
