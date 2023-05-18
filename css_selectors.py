@@ -26,3 +26,8 @@ driver.find_element(By.CSS_SELECTOR, 'span.icp-nav-flag.icp-nav-flag-us.icp-nav-
 #Id and class mix
 driver.find_element(By.CSS_SELECTOR, '#twotabsearchtextbox.nav-input')
 
+#By CSS attributes:
+driver.find_element(By.CSS_SELECTOR, "a[href='/gp/help/customer/display.html/ref=ap_signin_notification_condition_of_use?ie=UTF8&nodeId=508088']")
+
+#By CSS attributes partial match:
+driver.find_element(By.CSS_SELECTOR, "a[href*='ap_signin_notification_condition_of_use']")
