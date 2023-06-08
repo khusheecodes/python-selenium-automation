@@ -1,21 +1,13 @@
 from selenium.webdriver.common.by import By
 from behave import given, when, then
-from time import sleep
 
+SIGN_HEADER = (By.XPATH, "//h1[@class ='a-spacing-small']")
+EMAIL = ((By.ID, 'ap_email'))
 
-@given('open amazon search page')
-def open_amazon(context):
-    context.driver.get("https://www.amazon.com/")
-
-
-@when('click on return and orders')
-def click_return_orders(context):
-    context.driver.find_element(By.ID, 'nav-orders').click()
-
-
-@then('verify users see signin')
-def verify_sigin(context):
+@then('Verify Sign In page opens')
+def verify_sigin_opens(context):
     expected_text = 'Sign in'
-    actual_text = context.driver.find_element(By.XPATH, "//h1[@class ='a-spacing-small']").text
+    actual_text = context.driver.find_element(*SIGN_HEADER).text
     assert actual_text == expected_text, f'Expected {expected_text} but got {actual_text}'
-    assert context.driver.find_element(By.ID, 'ap_email').is_displayed(), 'Email field not found'
+    assert context.driver.find_element(*EMAIL).is_displayed(), 'Email field not found'
+
